@@ -37,7 +37,14 @@ class WebGui(webkit.WebView):
         webkit.WebView.__init__(self)
         self.settings = settings
         self.connect('navigation-policy-decision-requested', self.on_link_clicked)
+        
+        self.connect('form-sent', self.form_sent_callback)
+        
         self.dispatch_action('', self)
+        
+        
+    def form_sent_callback(self, webgui, frame, req, action, policy_decision, data=None):
+        print webgui, frame, req, action, policy_decision, data
         
             
     def on_link_clicked(self, webgui, frame, req, action, policy_decision, data=None):
