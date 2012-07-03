@@ -17,10 +17,14 @@ class WebkitPony(gtk.Window):
         '''Init a window, set size and instantiate the webgui.
         '''
         gtk.Window.__init__(self)
+        
         self.webgui =  WebGui(settings)
-        self.set_default_size(settings.WIDTH, settings.HEIGHT)
         self.connect("destroy", self.destroy)
         self.add(self.webgui)
+        self.show_all()
+       
+        self.set_size_request(settings.WIDTH, settings.HEIGHT)
+        self.set_resizable(False)
         self.show_all()
       
     def destroy(self, widget, data=None):
