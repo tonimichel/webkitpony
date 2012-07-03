@@ -1,4 +1,8 @@
-function send(url, data, callback) {
+
+
+var webkitpony = {}
+
+webkitpony.send = function(url, data, callback) {
     $(document).unbind('webkit_response')
     $(document).bind('webkit_response', function(e, response) {
         callback(response)
