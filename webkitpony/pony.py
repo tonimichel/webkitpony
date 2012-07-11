@@ -3,7 +3,7 @@ import webkit
 import re
 import gtk
 import json
-
+from inspector import Inspector
 
 
 class WebkitPony(gtk.Window):
@@ -22,7 +22,14 @@ class WebkitPony(gtk.Window):
         self.connect("destroy", self.destroy)
         self.add(self.webgui)
         self.show_all()
-       
+        
+        if settings.DEBUG:
+            webkitsettings = self.webgui.get_settings()
+            webkitsettings.set_property("enable-developer-extras", True)
+            inspector = Inspector(self.webgui.get_web_inspector())
+        else:
+            webview.props.settings.props.enable_default_context_menu = False
+        
         self.set_size_request(settings.WIDTH, settings.HEIGHT)
         self.set_resizable(False)
         self.show_all()
@@ -44,7 +51,7 @@ class WebGui(webkit.WebView):
         self.connect('navigation-policy-decision-requested', self.on_link_clicked)
         self.connect('title-changed', self.on_title_changed)
         self.dispatch_action('', self)
-        self.props.settings.props.enable_default_context_menu = False
+        
         
             
     def on_link_clicked(self, webview, frame, req, action, policy_decision, data=None):
