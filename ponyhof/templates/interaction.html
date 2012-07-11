@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    
+    
+    
+        <p>
+            To interact with python, webkitpony.js provides a method <code>webkitpony.send('action:my_url', {'some': 'data'}, function(data) {...})</code>
+        </p>
+       
+       
+       <form id="contactform" style="width:500px; float:left;">
+       
+            <p>
+                <label>Name</label>
+                <input type="text" name="name"/>
+            </p>
+          
+            <p>
+                <label>Street</label>
+                <input type="text" name="street"/>
+            </p>
+            <p>
+                <label>Zip code</label>
+                <input type="text" name="zip"/>
+            </p>
+            <p>
+                <label>Message</label>
+                <textarea name="message"></textarea>    
+            </p>     
+            <p>
+                <input type="submit" value="Send"/>
+            </p>   
+       </form>
+       
+       <div id="result" style="">
+            <h2>Server result</h2>
+       </div>
+       
+       <div class="clear"></div>
+       
+        <script type="text/javascript">
+            $('#contactform').submit(function() {
+                var form = $(this)
+                var form_data = {}
+            
+                form.find('input[type="text"], textarea').each(function() {
+                    form_data[$(this).attr('name')] = $(this).val()
+                })
+            
+                webkitpony.send('action:handle-form', form_data, function(response) {
+                    var item = $('<div>' + JSON.stringify(response) + '</div>')
+                    $('#result').append(item)
+                    item.fadeOut(10000, function() {$(this).hide()})                    
+                })
+                return false
+            
+            })     
+        </script>
+       
+        <style>
+            #result {float:left; width:600px;}
+            #result div {background: #f5f5f5; padding: 6px; border: 1px solid #93CCA1; border-radius: 3px;
+                ; margin-bottom:3px;font-family:monospace;
+            }
+        </style>
+
+ 
+                   
+
+{% endblock %}
