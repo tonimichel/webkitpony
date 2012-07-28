@@ -5,6 +5,7 @@ building webapp-like desktop apps in python
 
 License: MIT
 
+.. image:: https://zack.schnapptack.de/attachments/512/pony_2.jpg
 
 What webkitpony is about
 ==========================
