@@ -7,6 +7,8 @@ License: MIT
 
 .. image:: http://schnapptack.de/media/webkitpony.jpg
 
+Artwork by Christian Hauser
+
 What webkitpony is about
 ==========================
 
