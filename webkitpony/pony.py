@@ -63,6 +63,7 @@ class WebGui(webkit.WebView):
         elif uri.startswith("action:"):
           url = uri.split(":")[1]
           self.dispatch_action(url, webview)
+          return 1
         else: 
             pass
         return False   
@@ -84,17 +85,15 @@ class WebGui(webkit.WebView):
         ''' Dispatches the incoming url to a view in case a url-->view mapping
         was defined in urls.py. In case no mapping is found, a 404 is displayed.
         ''' 
-        
         for mapping in self.settings.URLCONF:
             p = re.compile(mapping[0])
-
+            
             if p.match(url) != None:
                 setattr(webview, 'data', data)
                 args = [webview]
                 m = p.search(url)
                 for group in m.groups():
                     args.append(group)
-
                 return mapping[1](*args)
         return view_404(webview)
         
