@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>webkitpony</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="file://{{STATIC_URL}}/styles.css">
+    <script src="file://{{ STATIC_URL }}/jquery-1.7.2.min.js"></script>        
+    <script src="file://{{ STATIC_URL }}/webkitpony.js"></script>
+
+</head>
+
+<body>
+           
+            <div id="logo">
+                webkitpony
+            </div>
+
+            
+             
+            <div class="buttons mega">
+               <a href="action:">Start</a>
+               <a href="action:javascript-interaction">Javascript interaction</a>
+            </div>
+
+            <div id="page">     
+                {% block content %} {% endblock %}
+            </div>
+</body>
+</html>
