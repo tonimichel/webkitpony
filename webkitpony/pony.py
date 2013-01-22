@@ -31,7 +31,8 @@ class WebkitPony(gtk.Window):
             webview.props.settings.props.enable_default_context_menu = False
         
         self.set_size_request(settings.WIDTH, settings.HEIGHT)
-        self.set_resizable(False)
+        self.set_resizable(getattr(settings, 'RESIZABLE', False))
+        self.set_title(getattr(settings, 'TITLE', 'Webkit Pony App'))
         self.show_all()
       
     def destroy(self, widget, data=None):
