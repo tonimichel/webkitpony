@@ -18,7 +18,7 @@ class WebkitPony(gtk.Window):
         '''
         gtk.Window.__init__(self)
         
-        self.webgui =  WebGui(settings)
+        self.webgui =  PonyWebView(settings)
         self.connect("destroy", self.destroy)
         self.add(self.webgui)
         self.show_all()
@@ -40,7 +40,7 @@ class WebkitPony(gtk.Window):
         
 
 
-class WebGui(webkit.WebView):
+class PonyWebView(webkit.WebView):
     '''
     Gui componet to embed webguis in desktop application. Listens for
     all click events and tries to map the clicked url views defined in urls.py.
