@@ -2,14 +2,13 @@
 Welcome to webkitpony's documentation!
 ###############################################################
 
-    “build webapp-like desktop applications”
-    
-    
-
+    “building webapp-like desktop applications in python”
     
     
 webkitpony is a micro framework to build dektop applications with web technologies on the basis of
 the python binding of the webkit rendering engine (http://code.google.com/p/pywebkitgtk/).
+
+The project is hosted on github: https://github.com/tonimichel/webkitpony
 
 .. image:: img/pony.png
     :align: center

@@ -1,7 +1,8 @@
 webkitpony
 =========================
 
-building webapp-like desktop apps in python
+
+    “building webapp-like desktop applications in python”
 
 Documentation: https://webkitpony.readthedocs.org/
 
