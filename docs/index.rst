@@ -22,8 +22,8 @@ Motivation
 
 Building desktop applications with standard toolkits like GTK works fine - but tweaking the UI 
 beyond the boundaries of window managers is exhausting. In contrast, building a web ui with HTML, 
-Javascript and CSS quite flexible. Acctually, the motivation behind webkitpony was to stay in a
-djangonaut-familiar environment when it came to build a desktop applications. As the basic technology  
+Javascript and CSS is quite flexible. Acctually, the motivation behind webkitpony was to stay in a
+djangonaut-familiar environment when it comes to build desktop applications. As the basic technology  
 (the webkit rendering engine) was given - it was about playing around and creating a simple-to-use django-like
 development process. The result was webkitpony.
 

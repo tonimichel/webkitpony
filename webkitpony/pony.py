@@ -90,7 +90,8 @@ class PonyWebView(webkit.WebView):
             p = re.compile(mapping[0])
             
             if p.match(url) != None:
-                setattr(webview, 'data', data)
+                setattr(webview, 'data', data) #@deprecated
+                setattr(webview, 'DATA', data)
                 args = [webview]
                 m = p.search(url)
                 for group in m.groups():

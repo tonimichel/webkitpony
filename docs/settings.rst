@@ -24,4 +24,10 @@ The default height when the pony is started.
 Boolean indicating whether the window is resizable or not.
 
 
+``settings.URLCONF``
+
+Specifies the project's urlconf module.
+
+
+
 

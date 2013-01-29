@@ -3,7 +3,7 @@ The webview object
 ###################################
 
 
-The webview object is comparable with the request and response of a django request/response cycle and always
+The webview object is comparable with the request and response objects of a django request/response cycle and is always
 passed as first parameter to any view. The public interface provides the following methods and attributes:
 
 
