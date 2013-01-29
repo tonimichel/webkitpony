@@ -28,7 +28,7 @@ setup(
     package_dir={'webkitpony': 'webkitpony'},
     package_data={'webkitpony': []},
     include_package_data=True,
-    scripts=[],
+    scripts=['bin/instantpony'],
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
