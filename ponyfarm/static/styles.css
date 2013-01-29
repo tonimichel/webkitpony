@@ -1,0 +1,64 @@
+
+/* Layout
+----------------------------------------------------------------------------------------------------------------------*/
+body {background: url(cream_dust.png); margin:0px; padding:22px; font-family: Helvetica, Arial, sans-serif; color: #666;}
+
+
+#hugelogo {background:url(pony.png) no-repeat center; height:510px; display:block; width:510px; margin:auto; border: 2px solid transparent; opacity:0.8;}
+#hugelogo:hover {border: 2px solid #333743; opacity: 1;}
+
+
+h1 {font-size:27px; color: #333743; text-align:center; margin-top:22px; font-weight:normal;}
+h2 {font-size:22px; color: #333743; text-align:center; margin-top:22px; font-weight:normal;}
+
+h1 a {text-decoration:none; color:#333743;}
+h1 a:hover {text-decoration:underline;}
+
+#examples {width:830px; margin:auto; }
+#examples a {
+    display:block; width:220px; height:200px; margin-right:10px; padding:22px; color:#fff; background: #ff8901; float:left;
+    border-radius:3px; opacity: 0.7; text-align:center; cursor:pointer; text-decoration:none;
+}
+#examples a span {display:none;}
+
+#examples a:hover,
+#examples a.current {opacity:1; font-size:33px;}
+#examples a:hover span,
+#examples a.current span {display:block; font-size: 22px;}
+#examples a.color1 {background: #ff8901;}
+#examples a.color2 {background: #ff3601;}
+#examples a.color3 {background: #3ca0d0;}
+
+#content {width:830px; margin:auto; text-align:center; padding-top:33px;}
+
+
+em {font-style:italic; text-decoration:underline;}
+
+/* Forms
+***************************************************/
+
+
+form input, form textarea {display:inline-block;}
+form p {margin:2px;}
+form input[type="text"], form textarea {padding:10px; border: 1px solid #ccc; border-radius: 3px; width:300px;}
+form input[type="text"]:focus, form textarea:focus {outline:none; background: #F7F5ED; border: 1px solid #999}
+
+input[type="submit"] {padding: 12px 42px 12px 42px;
+font-size: 17px; border: 1px solid #ccc;
+border-radius: 3px; cursor: pointer;
+background:#fbfbfb;}
+input[type="submit"]:hover {background:#eee;}
+
+
+
+
+.clear {clear:both;}
+
+
+
+
+
+
+
+
+

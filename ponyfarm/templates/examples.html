@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    
+      <h1>Examples</h1>   
+     
+     
+     
+        
+    <div id="examples">
+        <a class="color1 {% if full_reload%}current{% endif %}" href="full_reload/">Full "Reload" <span>[Re-renders the whole webview]</span></a>
+        <a class="color2 {% if pseudo_ajax%}current{% endif %}" href="pseudo_ajax/">Pseudo "Ajax"<span>[How to send form data]</span></a>
+        <a class="color3 {% if tipps%}current{% endif %}" href="tipps/">Tipps<span>[Useful tipps and tricks]</span></a>
+    </div>
+    <div class="clear"></div>
+     
+    <div id="content">
+        {% if full_reload %}
+            <h2>This was the a full reload</h2>
+        {% endif %}
+        
+        
+        {% if pseudo_ajax%}
+                <h2>Sending data to the python side</h2>
+                <form id="myform">
+                    <p><input type="text" name="subject" placeholder="enter a subject" required></p>
+                    <p><textarea name="message" placeholder="enter a message" required></textarea></p>
+                    <p><input type="submit" value="Send"></p>
+                </form>
+                <div id="reply"></div>
+            
+                <script>
+                    $(document).ready(function() {
+                        var form = $('#myform')
+                        form.submit(function() {
+                            var data = {
+                                subject: form.find('input[name="subject"]').val(),
+                                message: form.find('textarea[name="message"]').val()
+                            }
+                            webkitpony.send('send_message/', data, function(response) {
+                                var reply = $('#content')
+                                reply.empty()
+                                reply.append('<h2>The pony\'s reply</h2>')
+                                reply.append('<p> <em>The subject:</em> <br/>' + response.original_data.subject + '</p>')
+                                reply.append('<p> <em>The message:</em> <br/>' + response.original_data.message.replace('\n', '<br/>') + '</p>')
+                            })
+                            return false
+                        })
+                    })
+                    
+                
+                </script>
+            
+        {% endif %}
+        
+        
+        {% if tipps %}
+            <h2>Tipps & Tricks</h2>
+            
+            <p>
+                1) if settings.DEBUG=True you may inspect the DOM via the webkit inspector. This also enables a Javscript console.
+            </p>
+            
+            
+        {% endif %}
+     </div>
+        
+                   
+
+{% endblock %}

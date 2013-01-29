@@ -39,7 +39,6 @@ class WebkitPony(gtk.Window):
         gtk.main_quit()
         
 
-
 class PonyWebView(webkit.WebView):
     '''
     Gui componet to embed webguis in desktop application. Listens for
@@ -52,21 +51,23 @@ class PonyWebView(webkit.WebView):
         self.connect('navigation-policy-decision-requested', self.on_link_clicked)
         self.connect('title-changed', self.on_title_changed)
         self.dispatch_action('', self)
-        
-        
+
             
     def on_link_clicked(self, webview, frame, req, action, policy_decision, data=None):
         ''' Eventlistener for click events
         '''
         uri = req.get_uri()
-        if uri.startswith("file://"):
+
+        if uri.startswith("file:"):
             return False
         elif uri.startswith("action:"):
           url = uri.split(":")[1]
           self.dispatch_action(url, webview)
-          return 1
-        else: 
-            pass
+          return True
+        elif not uri.startswith('http'):
+          self.dispatch_action(uri, webview)
+          return True
+        
         return False   
 
 
@@ -77,10 +78,15 @@ class PonyWebView(webkit.WebView):
             data = None
             
         if data and data.has_key('__url__'):
-            if not data['__url__'].startswith('action:'):
-                raise Exception('Your URL does not start with "action:"')
-            self.dispatch_action(data['__url__'].split(":")[1], webview, data=data['__data__'])
+            if data['__url__'].startswith('http:'):
+                raise Exception('Your URL starts with http. Thats not right."')
             
+            if data['__url__'].startswith('action:'):
+                url = data['__url__'].split(":")[1]
+            else:
+                url = data['__url__']
+            self.dispatch_action(url, webview, data=data['__data__'])
+
     
     def dispatch_action(self, url, webview, data=None):
         ''' Dispatches the incoming url to a view in case a url-->view mapping
@@ -98,15 +104,12 @@ class PonyWebView(webkit.WebView):
                     args.append(group)
                 return mapping[1](*args)
         return view_404(webview)
-        
-      
       
     def render(self, tpl, context):
         render_webview(tpl, context, self)
     
     def json_response(self, data):
         self.execute_script("$(document).trigger('webkit_response', [%s])" % json.dumps(data))
-
 
 
 def render_webview(tpl, kwargs, webview):
@@ -119,4 +122,13 @@ def render_webview(tpl, kwargs, webview):
     
 def view_404(webgui):
     return render_webview('404.html', {}, webgui)
-        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    

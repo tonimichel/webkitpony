@@ -6,7 +6,6 @@ building webapp-like desktop apps in python
 License: MIT
 
 .. image:: http://schnapptack.de/media/webkitpony.jpg
-    width: 600px
     align: center
 
 Artwork by IYOMI
