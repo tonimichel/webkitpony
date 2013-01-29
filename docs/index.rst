@@ -11,7 +11,6 @@ the python binding of the webkit rendering engine (http://code.google.com/p/pywe
 The project is hosted on github: https://github.com/tonimichel/webkitpony
 
 .. image:: img/pony.png
-    :align: center
 
 Artwork by `IYOMI <http://iyomi.de>`_\
 
