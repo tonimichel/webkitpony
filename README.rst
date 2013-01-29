@@ -3,12 +3,9 @@ webkitpony
 
 building webapp-like desktop apps in python
 
+Documentation: https://webkitpony.readthedocs.org/
+
 License: MIT
-
-.. image:: http://schnapptack.de/media/webkitpony.jpg
-    align: center
-
-Artwork by IYOMI
 
 What webkitpony is about
 ==========================
@@ -20,12 +17,13 @@ Take a look at the demo project "ponyhof". The structure will look familiar to a
 
 
 
-Documentation
-=======================
+.. image:: http://schnapptack.de/media/webkitpony.jpg
 
-Currently in the docs folder.
+Artwork by IYOMI
 
-TODO: push it on readthedoc.org
+
+
+
 
 
 
